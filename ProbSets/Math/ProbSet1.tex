@@ -8,7 +8,7 @@
 \begin{document}
   \maketitle
 
-  \section*{Problem 1}
+  \section*{Exercise 1.3}
     \begin{itemize}
 
       \item Consider $A \in \mathcal{G}_1 \implies A$ open on $\mathbb{R}\implies {A}^c$
@@ -20,14 +20,26 @@
       Thus $\mathcal{G}_2$ is not a $\sigma$- algebra. Now we check whether $\mathcal{G}_2$  is an algebra.
       It is clear that $\phi \in \mathcal{G}_2$. Now consider any interval of the form $(a,b]$.
       Then it's complement is of the form $(-\infty,a] \cup (b, \infty)$ which $\in \mathcal{G}_2$. Similarly for any interval of the form
-      $(-\infty, b]$, its complement is of the form $(b, \infty)$ which $\in \mathcal{G}_2$. Thus, for all $A \in \mathcal{G}_2$, ${A}^c \in \mathcal{G}_2$
+      $(-\infty, b]$, its complement is of the form $(b, \infty)$ which $\in \mathcal{G}_2$. Thus, for all $A \in \mathcal{G}_2$, ${A}^c \in \mathcal{G}_2$.
+      Now consider ${A}_n \in \mathcal{G}_2$ for $n \in \mathbb{N}$. Then $\bigcup_{n=1}^{N}A_{n}$ is also a finite union
+      of disjoint intervals of the form $(-\infty, b], (a,b]$ and  $(a, \infty)$. Hence $\mathcal{G}_2$ is an algebra (but not a $\sigma$-algebra).
 
-      $\bigcup_{n=1}^{\mathbb{N}}A_{n}$    
-
-      \item
-
+      \item Now consider $A_n \in \mathcal{G}_3, n \in \mathbb{N}$. The first two properties of an algebra hold in this case
+      as they have already been proved above. Now consider $\bigcup_{n=1}^{\infty}A_{n}$ where ${A}_n \in \mathcal{G}_3$ for $n \in \mathbb{N}$.
+      The countable union $\bigcup_{n=1}^{\infty}A_{n} \in \mathcal{G}_3$ as it is contains countable unions of intervals of the form
+      $(a,b], (-\infty, b]$ and $(a, \infty)$. Thus $\mathcal{G}_3$ is a $\sigma$- algebra.
 
     \end{itemize}
+
+  \section*{Exercise 1.7}
+    Let $\mathcal{A}$ be any $\sigma$-algebra. By defnition of $\sigma$-algebra, $\phi \in \mathcal{A}$. Similarly, $X = {\phi}^c \in \mathcal{A}$
+    Thus $\{\phi, X\} \subset \mathcal{A}$. Now consider any $A \in \mathcal{A}$. Since $\mathcal{A}$ is a $\sigma$-algebra on $X$, $A \subset X \Rightarrow
+    A \in \mathcal{P}(X)$. Thus $\mathcal{A} \subset \mathcal{P}(X)$.
+
+  \section*{Exercise 1.10}
+  
+
+
 
 
 
