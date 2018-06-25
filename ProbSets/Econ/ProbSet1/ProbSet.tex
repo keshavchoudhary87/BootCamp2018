@@ -1,0 +1,123 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+
+\title{Problem Set- Dynamic Programming}
+\author{Keshav Choudhary}
+\date{}
+
+\begin{document}
+  \maketitle
+
+  \subsubsection*{Problem 1}
+
+  \begin{itemize}
+    \item The state variables are- Total endowment of oil - $B$ barrels, Prices of oil in different periods- $p_t$,
+    Real rate of interest- $r$
+
+    \item The control variable is the amount of oil sold in period $t$- $b_t$ barrels.
+
+    \item The transition equation is $B_{t+1} = B_t - b_t$ where $B_{t+1}$ = stock of oil in period $t+1$,
+    $B_t$ = stock of oil in period $t$ and $b_t$ = amount of oil sold in period $t$.
+
+
+    \item The sequence problem of the owner is
+    \begin{equation*}
+      \max_{{\{b_t\}}_{t=1}^{t=\infty}}\sum_{t=1}^{t=\infty}\frac{1}{(1+r)^{t-1}}p_{t}b_{t}
+    \end{equation*}
+    where $B = \sum_{t=1}^{t=\infty}b_t$. The Bellman Equation of the problem is
+    \begin{equation*}
+      V(B) = \max_{0 \le b \le B} pb+ \frac{1}{1+r}V(B)
+    \end{equation*}
+    where $B' = B-b$
+
+\item Differentiatiing Bellman equation above with respect to B', we get
+
+$$ \frac {dV}{dB'} = -p + \frac{1}{1+r}\frac {dV'}{dB'}  $$
+
+At the optimal $ \frac {dV}{dB'} $  is 0
+
+This implies
+
+$$ p = \frac{1}{1+r}\frac {dV'}{dB'}  $$
+
+Differentiatiing Bellman equation above with respect to B', we get
+
+$$ \frac {dV}{dB} = p - p \frac {dB'}{dB} + \frac{1}{1+r}\frac {dV'}{dB'}  \frac {dB'}{dB} $$
+
+Which can further be written as
+
+$$ \frac {dV}{dB} = p - \bigg(p  - \frac{1}{1+r}\frac {dV'}{dB'} \bigg) \frac {dB'}{dB} $$
+
+From above, and application of envelope theorem, we know that the term within the brackets is 0
+
+Hence, using both the equations we can conclude that the euler equation is:
+
+$$ p_{t+1} = p_{t}*(1+r) $$
+
+\item If $ p_{t+1} =  p_{t} $ then given that r is positive, it would mean that the future value of the oil is lower than the present value of oil. Therefore, it will be optimal for the owner to extract all of the oil in the first period itself to maximize its' utility.
+
+If $ p_{t+1} > (1+r) p_{t} $ then given that r is positive, it would mean that the future value of the oil is always greater than the present value of oil. Therefore, it will be optimal for the owner to never extract the oil at all to maximize its' utility.
+
+Any set of prices and extractions which satisfy the euler condition derived above will be a neccessary condition for an interior solution.
+
+
+  \end{itemize}
+
+\subsubsection*{Problem 2}
+
+\begin{itemize}
+\item The state variables are- the capital stock -$ k_{t} $, the productivity shocks to income function $ y_{t} $ given by $ z_{t} $
+
+
+\item The control variables are- the consumption  -  $ c_{t} $  and investment $ i_{t} $.
+
+\item The Bellman equation is given by
+
+$$ V(k_{t},z_{t}) = \max_{c_t}  [u(c_{t})] + \beta E[V(k_{t+1},z_{t+1})]  $$
+
+where
+
+$$ c_{t} = (1-\delta)k_{t} + z_{t}k_{t}^\alpha - k_{t+1} $$
+
+\end{itemize}
+
+\subsubsection*{Problem 3}
+The Bellman Equation is given by
+$$ V(k_{t},z_{t}) = \max_{c_t}  [u(c_{t})] + \beta E[V(k_{t+1},z_{t+1})]  $$
+
+where
+
+$$ c_{t} = (1-\delta)k_{t} + z_{t}k_{t}^\alpha - k_{t+1} $$
+
+and
+$$ \ln(z_{t}) =  \rho\ln(z_{t-1}) + \nu_{t} $$
+
+\subsubsection*{Problem 4}
+The problem can be thought of as a worker declining the higher wage, w, wrt to the unemployment benefit,$b$, in this period in the expectation that the next period it will get further higher wage.
+
+To formulate the Bellman we can think of expected utility to the worker if he takes up the current wage offer, w, from this period onwards forever.
+
+In this case the utility to the worker is
+
+$$ V^E = w + \beta w + \beta^2 w + \beta^3 w + ... $$
+
+$$ \Rightarrow $$
+
+$$ V^E = \frac {w}{1-\beta} $$
+
+In case the worker decides not to take the wage offer, he will get an unemployment benefit of b, followed by the wage of next period w,
+
+$$ V^U = b + \beta E[ V^E ( w, \epsilon)] $$
+
+The Bellman equation can be written as
+
+$$ V(w,\epsilon) = \max_w \{V^E(w,\epsilon), V^U(w,\epsilon)\} $$
+
+
+
+
+\end{document}
