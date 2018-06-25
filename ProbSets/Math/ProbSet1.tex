@@ -92,6 +92,13 @@
     \newline
     We thus have $\sigma(\mathcal A) = \sigma(\mathcal O)$. By Caratheodory's Theorem, $\mathcal B(\mathbb R) \subset \mathcal M$.
 
+  \section*{Exercise 3.1}
+    Let $X \subset \mathbb R$ be a countable set. Let $x_1, x_2, x_3 ...$ be the elements of $X$. For every $\epsilon > 0$, define, $A_n = (x_n - \frac{\epsilon}{2^{n+2}}, x_n + \frac{\epsilon}{2^{n+2}}) \forall n \in \mathbb N$.
+    Let $\mu$ denote the Lebesgue Measure. Therefore $\mu(\bigcup_{n=1}^{n=\infty})A_n = \sum_{n=1}^{n=\infty}\frac{\epsilon}{2^{n+1}}$. Summing the terms of the Geometric Progression on the RHS, we get
+    $\mu(\bigcup_{n=1}^{n=\infty})A_n = \epsilon /2$. Since $\epsilon$ is arbitrary, we get $\mu(\bigcup_{n=1}^{n=\infty})A_n = 0$. Now each $x_n \in X$ also implies $x_n \in A_n$ as $A_n$ has been defined in a manner that includes $x_n$.
+    Thus $X \subset \bigcup_{n=1}^{n=\infty}A_n$. By the monotonicity property, $\mu(X) \le \mu(\bigcup_{n=1}^{n=\infty}A_n) = 0$. Thus $\mu(X) = 0$ since the range of $\mu$ is non-negative.
+
+
 
 
 
