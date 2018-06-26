@@ -1,3 +1,10 @@
 [
-  "test_prob3.py::test_operate"
+  "test_prob4.py::test_fraction_init",
+  "test_prob4.py::test_fraction_str",
+  "test_prob4.py::test_fraction_float",
+  "test_prob4.py::test_fraction_eq",
+  "test_prob4.py::test_fraction_add",
+  "test_prob4.py::test_fraction_sub",
+  "test_prob4.py::test_fraction_mul",
+  "test_prob4.py::test_fraction_truediv"
 ]
