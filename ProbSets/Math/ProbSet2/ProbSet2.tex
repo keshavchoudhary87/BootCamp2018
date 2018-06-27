@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+
+\title{Maths Problem Set- Inner Product Spaces}
+\author{Keshav Choudhary}
+\date{}
+
+\begin{document}
+  \maketitle
+
+  \subsubsection*{Exercise 1}
+  \begin{itemize}
+     \item Using distributive properties of inner products and noting
+     the fact that it is a real inner product space (so that conjugates return the same inner product), we get
+     \begin{align*}
+       \frac{1}{4} \bigg ({||x + y)||}^2 - {||x - y||}^2 \bigg) &= \frac{1}{4} \bigg ( \langle x + y, x+y \rangle - \langle x-y, x-y\rangle \bigg )\\
+      &= \frac{1}{4} \bigg (\langle x , x+y \rangle + \langle y, x+y \rangle - \langle x, x-y\rangle + \langle y, x-y \rangle \bigg) \\
+      &= \frac{1}{4} \bigg( \langle x,x \rangle + \langle x,y \rangle + \langle y,x \rangle + \langle y,y \rangle - \langle x,x \rangle\\
+      &+ \langle x,y \rangle + \langle y,x \rangle - \langle y,y \rangle \bigg)\\
+      &= \langle x,y \rangle
+    \end{align*}
+    \item Again using distributive properties we have
+    \begin{align*}
+      \frac{1}{2} \bigg( ||x+y||^2 + ||x-y||^2 \bigg) &= \frac{1}{2} \bigg( \langle x+y, x+y \rangle + \langle x-y, x-y \rangle \bigg)\\
+      &= \frac{1}{2} \bigg( \langle x, x+y \rangle + \langle y, x+y \rangle + \langle x, x-y \rangle - \langle y, x-y \rangle \bigg)\\
+      &= \frac{1}{2}\bigg(\langle x, x \rangle + \langle x, y \rangle + \langle y, x \rangle + \langle y, y \rangle \\
+      &+ \langle x, x \rangle - \langle x, y \rangle - \langle y,x \rangle + \langle y,y \rangle \bigg)\\
+      &= \bigg(||x||^2 + ||y||^2 \bigg)
+    \end{align*}
+
+  \subsection*{Exercise 2}
+    
+
+  \end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
