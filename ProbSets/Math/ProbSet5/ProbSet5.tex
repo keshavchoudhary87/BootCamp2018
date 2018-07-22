@@ -2,6 +2,7 @@
 \usepackage{array}
 \usepackage{threeparttable}
 \usepackage{geometry}
+\usepackage{bm}
 \geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
 \usepackage{fancyhdr,lastpage}
 \pagestyle{fancy}
@@ -72,15 +73,374 @@
 
 \vspace{5mm}
 
-\noindent\textbf{Problem 1}
+\noindent\textbf{Problem 8.1} See Jupyter Notebook for the plot and solution.
+
+\vspace{2mm}
+
+\noindent\textbf{Problem 8.2} See Jupyter Notebook for the plot and solution.
+
+\vspace{2mm}
+
+\noindent\textbf{Problem 8.3}
+Let $x$ be the quantity of production of GI Bard Soldiers and let $y$ be the quantity of production of Joey dolls.
+The revenues are given by $12x + 10y$, the raw material cost is given by $5x+3y$ and the overhead costs are given by
+$F+3x+4y$ where $F$ is the overhead cost when there is no production.
+
+The finishing labour requirement is $15x+10y$ minutes and molding labour requirement is $2x+2y$ minutes.
+
+The optimization problem is thus:
+\begin{align*}
+  \max_{{x,y}}4x+3y\\
+  \textnormal{subject to: } 3x+2y &\le 360\\
+   x+y &\le 150\\
+   y &\le 200
+\end{align*}
+
+\noindent\textbf{Problem 8.4}
+The optimization problem is as follows-
+\begin{align*}
+  \min_{x_{i,j}} & \bigl( 5x_{AD} + 2x_{AB} + 2x_{BD} + 7x_{BE} + 9x_{BF} + 5x_{BC}\\
+                 & 2x_{CF} + 4x_{DE}+ 3x_{EF}\bigr)\\
+  \textnormal{subject to: }\\
+  &x_{AD} + x_{AB} = 10\\
+  &x_{BC} + x_{BD} + x_{BE} + x_{BF} - x_{AB} = 1\\
+  &x_{CF} - x_{BC} = -2\\
+  &x_{DE} - x_{AD} - x_{BD} = -3\\
+  &x_{EF} - x_{BE} - x_{BD} = 4 \\
+  &x_{CF} + x_{BF} + x_{EF} = 10\\
+  & 0 \le x_{i,j} \le 6 \textnormal{ where $i,j$ are nodes}
+\end{align*}
+
+\noindent\textbf{Problem 8.5}
 
 
+\textbf{(i)}The initial dictionary after adding in 3 slack variables $x_3, x_4, x_5$ is:
+  \begin{align*}
+      \zeta_1 &= 3x_1+x_2\\
+      \cline{1-2}
+      x_3 &= 15 - x_1 - 3x_2\\
+      x_4 &= 18-2x_1-3x_2\\
+      x_5 &= 4-x_1+x_2
+  \end{align*}
+We choose $x_1$ as the entering variable and $x_5$ as the leaving variable. The new dictionary becomes:
+
+\begin{align*}
+    \zeta_2 &= 12+4x_2-3x_5\\
+    \cline{1-2}
+    x_1 &= 4 + x_2 - x_5\\
+    x_3 &= 11-4x_2+ x_5\\
+    x_4 &= 10-5x_2+2x_5\\
+\end{align*}
+
+We now choose $x_2$ as the entering variable and $x_4$ as the leaving variable. The new dictionary becomes:
+
+\begin{align*}
+    \zeta_3 &= 20 - (4/5)x_4 - (7/5)x_5\\
+    \cline{1-2}
+    x_1 &= 6 - (1/5)x_4 - (3/5)x_5\\
+    x_2 &= 2-(1/5)x_4+ (2/5)x_5\\
+    x_3 &= 3 + (4/5)x_4 -(13/5)x_5\\
+\end{align*}
+
+Since both $x_4, x_5$ now appear with negative signs in the objective function, this is the optimum. The
+values are: $x_1= 6, x_2=2$ and the value of the objective function is $20$. This matches the answer in the
+Jupyter Notebook.
+
+\textbf{(ii)} The initial dictionary after adding in 3 slack variables $x_3, x_4, x_5$ is:
+\begin{align*}
+      \zeta_1 &= 4x_1+6x_2\\
+      \cline{1-2}
+      x_3 &= 11 + x_1 - x_2\\
+      x_4 &= 27-x_1-x_2\\
+      x_5 &= 90 - 2x_1 - 5x_2\\
+\end{align*}
+
+We choose $x_1$ as the entering variable and $x_4$ as the leaving variable. The new dictionary becomes:
+
+\begin{align*}
+  \zeta_2 &= 108 + 2x_2 -4x_4\\
+  \cline{1-2}
+  x_1 &= 27 - x_2 - x_4\\
+  x_3 &= 38- 2x_2-x_4\\
+  x_5 &= 36 - 3x_2 + 2x_4\\
+\end{align*}
+
+We now choose $x_2$ as the entering variable and $x_5$ as the leaving variable. The new dcitionary becomes:
+\begin{align*}
+  \zeta_3 &= 132 -(8/3)x_4-(2/3)x_5\\
+  \cline{1-2}
+  x_1 &= 15-(5/3)x_4+(1/3)x_5\\
+  x_2 &= 12+(2/3)x_4-(1/3)x_5\\
+  x_3 &= 14-3x_4+(2/3)x_5 \\
+\end{align*}
+
+All the variables now appear in the objective function with a negative sign. Hence the present choice is optimal.
+This occurs at $x=15, y=12$ and the value of the objective function is $132$.
+
+\vspace{2mm}
+\noindent\textbf{Problem 8.6} After adding 3 slack variables $w_1, w_2, w_3$ , the initial dictionary is:
+
+\begin{align*}
+  \zeta_1 &= 4x+3y\\
+  \cline{1-2}
+  w_1 &= 360-3x-2y\\
+  w_2&= 150-x-y\\
+  w_3 &= 200-y \\
+\end{align*}
+We choose as x as the entering variable and $w_1$ as the leaving variable. The new dictionary becomes:
+
+\begin{align*}
+  \zeta_2 &= 480 + (1/3)y -(4/3)w_1\\
+  \cline{1-2}
+  x &= 120 -(2/3)y - (1/3)w_1\\
+  w_2&= 30-(1/3)y+(1/3)w_1\\
+  w_3 &= 200-y \\
+\end{align*}
+
+Next, we choose y as the entering variable and $w_2$ as the leaving variable.
+
+\begin{align*}
+  \zeta_3 &= 510 -10w_2 - (5/3)w_1\\
+  \cline{1-2}
+  x &= 60 + 20w_2+(1/3)w_1\\
+  y &= 90 - 30w_2-w_1\\
+  w_3 &= 110+30w_2+w_1 \\
+\end{align*}
+
+As all the terms in the objective function appear with a negative sign, we are at the optimum.
+The value of the objective function i.e profit is \textdollar 510 and $x=60, y=90$
+
+\vspace{3mm}
+\noindent\textbf{Problem 8.7}
+\begin{enumerate}
+  \item The origin is not part of the feasible set. This can be seen from the Jupyter Notebook where the
+  feasible set is plotted. We therefore set up an auxiliary problem first by subtracting $x_0$ from all the
+  constraints. The dictionary for the auxiliary problem is:
+  \begin{align*}
+    \zeta_1 &= -x_0\\
+    \cline{1-2}
+    x_3 &= -8 + 4x_1 + 2x_2 + x_0\\
+    x_4 &= 6 + 2x_1 -3x_2+ x_0\\
+    x_5 &= 3-x_1+x_0
+  \end{align*}
+
+  We pivot $x_0$ and $x_1$. The new dictionary becomes:
+  \begin{align*}
+    \zeta_2 &= -x_0\\
+    \cline{1-2}
+    x_1 &= 2 - (1/2)x_2 + (1/4)x_3-(1/4)x_0\\
+    x_4 &= 10 - 4x_2 +(1/2)x_3+ (1/2)x_0\\
+    x_5 &= 1+(5/2)x_2 - (1/4)x_3 + (5/4)x_0\\
+  \end{align*}
+  We can see that this dictionary is optimal as all points are feasible and the objective function is 0
+  Thus $x_1=2, x_2=0, $ is a feasible point for the original problem. We can remove $x_0$ from the main problem
+  and replace $x_1$ in terms of the non-basic variables. The new dictionary becomes:
+
+  \begin{align*}
+    \zeta_3 &= 2 -(1/2)x_2+2x_2+(1/4)x_3\\
+    \cline{1-2}
+    x_1 &= 2 - (1/2)x_2 + (1/4)x_3\\
+    x_4 &= 10 - 4x_2 +(1/2)x_3\\
+    x_5 &= 1 + (1/2)x_2 - (1/4)x_3\\
+  \end{align*}
+  We pivot $x_3, x_5$. The new dictionary becomes:
+  \begin{align*}
+    \zeta_4 &= 3+2x_2-x_5\\
+    \cline{1-2}
+    x_1 &= 3 - x_5\\
+    x_3 &= 4+2x_2-4x_5\\
+    x_4 &=12-3x_2-2x_5\\
+  \end{align*}
+We again pivot $x_2, x_4$ and obtain the dictionary:
+\begin{align*}
+  \zeta_5 &= 11- (2/3)x_4- (7/3)x_5\\
+  \cline{1-2}
+  x_1 &= 3-x_5\\
+  x_2 &= 4 - (1/3)x_4 - (2/3)x_5\\
+  x_3 &= 12 - (2/3)x_4 - (16/3)x_5
+\end{align*}
+This dictionary is optimal as all the terms appear with a negative sign. The optimal values are $x_1=3, x_2=4$.
+This can also be confirmed from the diagram in the Jupyter Notebook.
+
+\item The origin is not part of the feasible set as the third constraint appears with a negative sign.
+The auxiliary problem is:
+\begin{align*}
+  \zeta_1 &= -x_0\\
+  \cline{1-2}
+  x_3 &= 15-5x_1-3x_2+x_0\\
+  x_4 &= 15-3x_1-5x_2+x_0\\
+  x_5 &= -12 -4x_1+3x_2+x_0\\
+\end{align*}
+
+We pivot $x_0, x_5$ and get the new dictionary as:
+\begin{align*}
+  \zeta_2 &= 12+4x_1-3x_2+x_5\\
+  \cline{1-2}
+  x_0 &= 12+4x_1-3x_2+x_5\\
+  x_3 &= 27-x_1 - 6x_2+x_5\\
+  x_4 &= 27+x_1- 8x_2+x_5\\
+\end{align*}
+
+Again, we pivot $x_2, x_4$ and obtain:
+\begin{align*}
+  \zeta_3 &= -(15/8)- (29/8)x_1-(3/8)x_4- (5/8)x_5\\
+  \cline{1-2}
+  x_3 &= (27/4) - (7/4)x_1+(3/4)x_4+(1/4)x_5\\
+  x_2 &= (27/8) + (1/8)x_1 -(1/8)x_4+(1/8)x_5\\
+  x_0 &= (15/8) + (29/8)x_1 + (3/8)x_4 + (5/8)x_5\\
+\end{align*}
+
+This dictionary is optimal since all the coefficients in the objective function are negative. However,
+at this optimum, $x_0 \ne 0$. Hence the problem is infeasible.
+
+\item After adding in the slack variables, the initial dictionary is :
+\begin{align*}
+  \zeta_1 &= -3x_1+x_2\\
+  \cline{1-2}
+  x_3 &= 4-x_2\\
+  x_4 &= 6+2x_1-3x_2\\
+\end{align*}
+We pivot, $x_2, x_4$ and obtain the following dictionary:
+\begin{align*}
+  \zeta_2 &= 2-(7/3)x_1-(1/3)x_4\\
+  \cline{1-2}
+  x_2 &= 2+(2/3)x_1 - (1/3)x_4\\
+  x_3 &= 2-(2/3)x_1+(1/3)x_3\\
+\end{align*}
+
+This dictionary is optimal as all the coefficients in the objective function have negative signs.
+The optimal solution is $x_1= 0, x_2 = 2$ and the value of the objective function is 2.
+\end{enumerate}
+
+\vspace{3mm}
+\noindent\textbf{Problem 8.12}
+The initial dictionary after adding in the slack variables is:
+\begin{align*}
+  \zeta_1 &= 10x_1-57x_2-9x_3-24x_4\\
+  \cline{1-2}
+  x_5 &= -0.5x_1 + 1.5x_2+0.5x_3-x_4\\
+  x_6 &= -0.5x_1+5.5x_2 + 2.5x_3 -9x_4\\
+  x_7 &= 1-x_1\\
+\end{align*}
+
+Using Bland's rule, we pivot $x_1, x_5$. The new dictionary is:
+\begin{align*}
+  \zeta_2 &= -27x_2+x_3-44x_4 - 20x_5\\
+  \cline{1-2}
+  x_1 &= 3x_2 + x_3 -2x_4-2x_5\\
+  x_6 &= 4x_2+2x_3-8x_4+x_5\\
+  x_7 &= 1-3x_2-x_3+2x_4+2x_5\\
+\end{align*}
+
+We now pivot $x_3, x_7$ and obtain:
+
+\begin{align*}
+  \zeta_3 &= 1-30x_2-42x_4-18x_5-x_7\\
+  \cline{1-2}
+  x_1 &= 1-x_7 \\
+  x_6 &= 2-2x_2-4x_4+5x_5-2x_7 \\
+  x_3 &= 1-3x_2+2x_4+2x_5-x_7 \\
+\end{align*}
+
+This dictionary is optimal as all the coefficients appear with negative sign in the objective function. The
+optimal points are $x_1=1, x_2=0, x_3=1, x_4=0$ and the value of the objective function is 1.
+
+\vspace{3mm}
+\noindent\textbf{Problem 8.15}
+  Using the definitions of primal and dual problems where $\bm{x, y}$ are feasible points of the primal
+  and the dual respectively, we have
+\begin{align*}
+   \bm{A^Ty} &\succeq \bm{c} \\
+   \Rightarrow \bm{x^TA^Ty} &\ge \bm {x^Tc}\\
+   \Rightarrow \bm{(Ax)^Ty} &\ge \bm{(x^Tc)}\\
+   \Rightarrow \bm{b^Ty} &\ge \bm{(Ax)^Ty} \ge \bm{x^Tc}\\
+   \Rightarrow \bm{b^Ty} &\ge \bm{x^Tc}\\
+   &=\bm{c^Tx}\\
+   \Rightarrow \bm{b^Ty} &\ge \bm{c^Tx}
+\end{align*}
 
 
+\vspace{3mm}
+\noindent\textbf{Problem 8.17}
 
+Consider the primal problem
+\begin{align*}
+\max &\mathbf{c^Tx} \\
+\textnormal{subject to } &A\textbf{x}\preceq \textbf{b}\\
+&\textbf{x} \succeq 0\\
+\end{align*}
 
+The dual of the problem is
+\begin{align*}
+\min &\mathbf{b^Ty} \\
+\textnormal{subject to } &A^T\textbf{y}\succeq \textbf{c}\\
+&\textbf{y} \succeq 0\\
+\end{align*}
 
+The dual problem can be re-written as
+\begin{align*}
+\max (&\mathbf{-b^Ty}) \\
+\textnormal{subject to } &-A^T\textbf{y}\preceq \textbf{-c}\\
+&\textbf{y} \succeq 0\\
+\end{align*}
 
+Let us rename $$-b^T=r^T, -A^T = K, -c = p$$
+
+The dual problem thus becomes-
+\begin{align*}
+\max (&\mathbf{r^Ty}) \\
+\textnormal{subject to } &K\textbf{y}\preceq \textbf{p}\\
+&\textbf{y} \succeq 0\\
+\end{align*}
+
+This is in the same form as a linear optimization problem. The dual of this problem is:
+\begin{align*}
+\min &\mathbf{p^Tx} \\
+\textnormal{subject to } &K^T\textbf{x}\succeq \textbf{r}\\
+&\textbf{x} \succeq 0\\
+\end{align*}
+
+On replacing the terms defined above we get:
+\begin{align*}
+\max &\mathbf{c^Tx} \\
+\textnormal{subject to } &A\textbf{x}\preceq \textbf{b}\\
+&\textbf{x} \succeq 0\\
+\end{align*}
+
+Which is nothing but the primal problem. Hence the dual of the dual is the primal problem.
+
+\vspace{3mm}
+\noindent\textbf{Problem 8.18}
+We first solve the primal problem using the simplex method. The initial dictionary is
+
+\begin{align*}
+  \zeta_1 &= x_1+x_2\\
+  \cline{1-2}
+  x_3 &= 3-2x_1-x_2\\
+  x_4 &= 5-x_1-3x_2\\
+  x_5 &= 4-2x_1-3x_2\\
+\end{align*}
+
+We pivot $x_1, x_3$ and obtain the dictionary:
+\begin{align*}
+  \zeta_2 &= 1.5 + 0.5x_2-0.5x_3\\
+  \cline{1-2}
+  x_1 &= 1.5 -0.5x_2-0.5x_3\\
+  x_4 &= 3.5-2.5x_2+0.5x_3\\
+  x_5 &= 1-2x_2+x_3\\
+\end{align*}
+
+We now pivot $x_2,x_5$ and obtain:
+\begin{align*}
+  \zeta_3 &= 1.75 - 0.25x_3-0.25x_5\\
+  \cline{1-2}
+  x_1 &= 1.25 - 0.75x_3+0.25x_5\\
+  x_4 &= 2.25 - 0.75x_3+1.25x_5\\
+  x_2 &= 0.5+0.5x_3-0.5x_5\\
+\end{align*}
+
+This dictionary is optimal as the coefficients of the variables in the objective function appear with a
+negative sign. The optimal values are $x_1=1.25, x_2 = 0.5$ and the objective function is 1.75.
 
 
 
