@@ -313,6 +313,52 @@ The optimal solution is $x_1= 0, x_2 = 2$ and the value of the objective functio
 \end{enumerate}
 
 \vspace{3mm}
+\noindent\textbf{Problem 8.8}
+\begin{align*}
+  \max_{{x,y,z}} -3x+ y+ 3z\\
+  \textnormal{subject to: } y\leq 4\\
+   -2x + 3y+ 4z\leq 10\\
+\end{align*}
+
+\vspace{3mm}
+\noindent\textbf{Problem 8.9}
+As per proposition 8.3.1, if the coefficient of the variable in objective function is positive and the coefficients in the constraints are non-negative then the optimization problem will be unbounded.Consider the problem below
+
+\begin{align*}
+  \max_{{x,y,z}} ax+ 5y+ 3z\\
+  \textnormal{subject to: } mx -y-z\leq 1\\
+   3y+4z\leq 1\\
+\end{align*}
+If $a,m$ are positive then the problem would be unbounded.
+
+\vspace{3mm}
+\noindent\textbf{Problem 8.10}
+As seen in the problem 8.7(ii), if the constraints are such that their solution set is null then the optimization problem will be infeasible.
+\begin{align*}
+  \max_{{x,y,z}} 2x+ 9y+ 3z\\
+  \textnormal{subject to: } x + y + z\leq 1\\
+   3x + 2y+ 5z\leq 4 \\
+   x - y- z\leq -10000
+\end{align*}
+The last constraint ensures that the intersection between the three constraints is null.Hence, the optimization is infeasible.
+
+\vspace{3mm}
+\noindent\textbf{Problem 8.11}
+Section 8.3.2 provides the condition for the origin $\textbf{0}$ vector to be infeasible. The intuition is that $Ax\preceq b$ has to be true for $x=0$ and if vector $\textbf{b}$ has any one component
+has a negative value then the origin becomes infeasible. Problem 8.7(i) is an example of such a case in 2-dimensions.
+
+The dual problem for 8.18 can be an example for a 3-D case. I try to give another solution below:-
+
+\begin{align*}
+  \max_{{x,y,z}} 2x+ 9y+ 3z\\
+  \textnormal{subject to: } x + y + z\le 1\\
+   3x + 2y+ 5z \le -1 \\
+   x - 2y -3z\le -4
+\end{align*}
+The last two constraints ensure that some components of $\textbf{b}$  vector are negative. Hence the origin will be infeasible.
+As I have already solved 8.18 dual problem. See it as an example for auxiliary problem method.
+
+\vspace{3mm}
 \noindent\textbf{Problem 8.12}
 The initial dictionary after adding in the slack variables is:
 \begin{align*}
@@ -442,9 +488,69 @@ We now pivot $x_2,x_5$ and obtain:
 This dictionary is optimal as the coefficients of the variables in the objective function appear with a
 negative sign. The optimal values are $x_1=1.25, x_2 = 0.5$ and the objective function is 1.75.
 
+The dual problem is:
+\begin{align*}
+  \max_{y_1, y_2, y_3}&(-3y_1-5y_2-4y_3)\\
+  \textnormal{subject to } &-2y_1-y_2-2y_3 \le -1\\
+  &-y_1-3y_2-3y_3 \le -1\\
+  &y_1, y_2, y_3 \ge 0
+\end{align*}
 
 
+The origin is not part of the feasible set for this problem as the R.H.S has a negative sign in both constraints.
+Therefore we set up the auxiliary problem and obtain the dictionary:
+\begin{align*}
+  \zeta_1 &= -y_0\\
+  \cline{1-2}
+  y_4 &= -1 +2y_1+y_2+2y_3+y_0\\
+  y_5 &= -1 + y_1 +3y_2+3y_3+y_0\\
+\end{align*}
 
+We pivot $y_0, y_4$ and obtain the following dictionary:
+\begin{align*}
+  \zeta_2 &= -1+y_1+ey_2+3y_3-y_5\\
+  \cline{1-2}
+  y_0 &= 1-y_1-3y_2-3y_3+y_5\\
+  y_4 &= y_1-2y_2-y_3+y_5\\
+\end{align*}
+
+We now pivot $y_1, y_0$ and obtain:
+\begin{align*}
+  \zeta_3 &= -y_0\\
+  \cline{1-2}
+  y_1 &= 1-3y_2-3y_3+y_5-y_0\\
+  y_4 &= 1-5y_2-4y_3+2y_5-y_0\\
+\end{align*}
+
+This dictionary is optimal as the objective function is 0 at the minimum. Since $y_1$ is a non basic variable
+we write it in terms of other basic variables, remove $y_0$ and obtain the following dictionary for the main problem-
+
+\begin{align*}
+  \zeta_4 &= -3+4y_2+5y_3-3y_5\\
+  \cline{1-2}
+  y_1 &= 1-3y_2-3y_3+y_5\\
+  y_4 &= 1-5y_2-4y_3+2y_5\\
+\end{align*}
+
+We pivot $y_2, y_4$ and obtain the following dictionary:
+\begin{align*}
+  \zeta_5 &= -(11/5)+(9/5)y_3-(4/5)y_4- (7/5)y_5\\
+  \cline{1-2}
+  y_1 &= (2/5)-(3/5)y_3+(3/5)y_4-(1/5)y_5\\
+  y_2 &= (1/5)-(4/5)y_3-(1/5)y_4+(2/5)y_5\\
+\end{align*}
+
+Finally, we pivot $y_2, y_3$ and obtain:
+
+\begin{align*}
+  \zeta_6 &= -(7/4)-(9/4)y_2-(5/4)y_4-(1/2)y_5\\
+  \cline{1-2}
+  y_1 &= (1/4)+(3/4)y_2+(3/4)y_4-(1/2)y_2\\
+  y_3 &= (1/4)- (5/4)y_2-(1/4)y_4+(1/2)y_5\\
+\end{align*}
+
+This is the optimal dictionary as all terms appear with negative signs. The value of the objective function is $-(-7/4) = 7/4= 1.75$
+at the optimum which is the same as the primal problem. Hence both are equivalent.
 
 
 \end{document}
